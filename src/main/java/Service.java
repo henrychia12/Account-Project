@@ -30,5 +30,16 @@ public class Service {
 	public String jsonString(Integer key) {
 		return new Gson().toJson(retrievePerson(key));
 	}
+	
+	public int firstNameCounter(String name) {
+		int counter = 0;
+		for(int i = 1; i<=file.size(); i++) {
+			if(file.get(i).getFirstName().equals(name)) {
+				counter++;
+			}
+		}
+		return counter;
+		
+	}
 
 }
