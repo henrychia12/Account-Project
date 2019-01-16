@@ -8,13 +8,17 @@ public class AccountTest {
 
 	public Account personOne;
 	public Account personTwo;
+	public Account personThree;
+	public Account personFour;
 	public Service service;
 	public HashMap file;
 
 	@Before
 	public void setup() {
 		personOne = new Account("Sarah", "Todd", 435122);
-		personTwo = new Account("John", "Smith", 535322);
+		personTwo = new Account("Carlton", "Smith", 535322);
+		personThree = new Account("Carlton", "Edward", 563722);
+		personFour = new Account("Carlton", "Peters", 123322);
 		service = new Service();
 		file = new HashMap<>();
 	}
@@ -43,5 +47,12 @@ public class AccountTest {
 		service.addAccount(1, personOne);
 		Assert.assertEquals("{\"firstName\":\"Sarah\",\"lastName\":\"Todd\",\"accountNumber\":435122}", service.jsonString(1));
 		}
-
+	
+	@Test
+	public void firstNameCounterTest() {
+		service.addAccount(1, personTwo);
+		service.addAccount(2, personThree);
+		service.addAccount(3, personFour);
+		Assert.assertEquals(3, service.firstNameCounter("Carlton"));
+	}
 }

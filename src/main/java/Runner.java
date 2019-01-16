@@ -1,4 +1,3 @@
-import com.google.gson.Gson;
 
 public abstract class Runner {
 
@@ -18,7 +17,7 @@ public abstract class Runner {
 		service.retrieveAll();
 		
 		System.out.println(service.jsonString(2));
-//		System.out.println(new Gson().toJson(service.retrievePerson(1)));
+		
 		
 
 	}
